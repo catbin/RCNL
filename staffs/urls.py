@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from polls import views
+from staffs import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index')
