@@ -17,7 +17,7 @@ body {
 		display: block; /* Change anchor to block element */
 		width: 133px;
 		height: 100px; /* Specify width and height of the image. Height is value of each individual button graphic */
-		background-image: url({{STATIC_URL}}images/button-sprite.png); /* Add the image as a background */
+		background-image: url(static/images/button-sprite.png); /* Add the image as a background */
 		background-position: top; /* Set the position to the top */
 		text-indent: -9999px; /* Send the rendered HTML wording off screen */
 }
