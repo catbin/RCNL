@@ -14,7 +14,8 @@ body {
 
 	#large_button p a.press-it-btn {
 		display: block; /* Change anchor to block element */
-		width: 433px; height: 174px; /* Specify width and height of the image. Height is value of each individual button graphic */
+		width: 133px;
+		height: 174px; /* Specify width and height of the image. Height is value of each individual button graphic */
 		background-image: url({{STATIC_URL}}images/button-sprite.png); /* Add the image as a background */
 		background-position: top; /* Set the position to the top */
 		text-indent: -9999px; /* Send the rendered HTML wording off screen */
