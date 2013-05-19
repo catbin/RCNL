@@ -20,3 +20,16 @@ class Salary(models.Model):
 		if self.is_activate :
                 	return '*'+s
 		return s
+
+class Shop(models.Model):
+	shop_name = models.CharField(max_length = 20)
+	
+	def __unicode__ (self):
+		return self.shop_name
+
+class Employement (models.Model):
+	staff = models.ForeignKey('Staff')
+	shop = models.ForeignKey('Shop')
+	
+	def __unicode__ (self):
+		return self.staff.name +"@"+self.shop.shop_name
