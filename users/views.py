@@ -6,7 +6,7 @@ def login (request):
     if request.method == 'POST':
         form = UserFormToLogin(request.POST) 
         if form.is_valid(): 
-            if Authendicator.login(form.cleaned_data['uname'], form.cleaned_data['password'], request)():
+            if Authendicator.login(form.cleaned_data['uname'], form.cleaned_data['password'], request)() == Authendicator.AUTHENDICATED:
                 return HttpResponseRedirect('/thanks/') # Redirect after POST
     else:
         form = UserFormToLogin()
