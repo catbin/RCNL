@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'RCNL.views.home', name='home'),
     # url(r'^RCNL/', include('RCNL.foo.urls')),
     url(r'^staffs/', include('staffs.urls')),
+    url(r'^users/', include('users.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
