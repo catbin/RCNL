@@ -17,7 +17,7 @@ class Authendicator:
             if user[0].password == password:
                 request.session['user'] = user[0]
                 return 1#Authendicator.AUTHENDICATED
-            return 0#Authendicator.FAILED
+            return Authendicator.FAILED
         except:
             return 0#Authendicator.FAILED
     
