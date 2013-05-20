@@ -9,7 +9,7 @@ class Authendicator:
     
     
     @staticmethod
-    def login( username, password, request ):
+    def login_me( username, password, request ):
         try:
             user = User.objects.select_related().filter( Q( uname = username ) )
             if not user.exists():
@@ -22,7 +22,7 @@ class Authendicator:
             return Authendicator.FAILED
     
     @staticmethod
-    def logout ( request ):
+    def logout_me ( request ):
         request.session.flush()
         
 class UserFormToLogin(forms.Form):
