@@ -1,0 +1,18 @@
+{% extends "base/base.html"  %}
+
+{% block title %}
+登录
+{% endblock title %}
+
+{{% block header %}
+<div class= 'header'>登录</div>
+{% endblock header %}
+
+{% block content %}
+
+<form action="/users/login.html" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock content %}

@@ -27,3 +27,7 @@ body {
 		}
 
 a { outline: none; }
+
+.align-centre {
+	margin:auto;
+}
