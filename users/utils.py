@@ -12,7 +12,7 @@ class Authendicator:
     def login( username, password, request ):
         try:
             user = User.objects.select_related().filter( Q( uname = username ) )
-            if not user.exists():
+            if user.exists():
                 return Authendicator.FAILED
             if user[0].password == password:
                 request.session['user'] = user[0]
