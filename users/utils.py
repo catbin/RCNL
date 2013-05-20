@@ -13,13 +13,13 @@ class Authendicator:
         try:
             user = User.objects.select_related().filter( Q( uname = username ) )
             if not user.exists():
-                return 0#Authendicator.FAILED
+                return Authendicator.FAILED
             if user[0].password == password:
                 request.session['user'] = user[0]
-                return 1#Authendicator.AUTHENDICATED
+                return Authendicator.AUTHENDICATED
             return Authendicator.FAILED
         except:
-            return 0#Authendicator.FAILED
+            return Authendicator.FAILED
     
     @staticmethod
     def logout_me ( request ):
