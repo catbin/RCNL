@@ -1,5 +1,7 @@
 from users.models import User
-from django.forms import ModelForm
+from django import forms
+from django.db.models import Q
+from django.http import HttpResponseRedirect
 
 class Authendicator:
     FAILED = 0
@@ -14,19 +16,20 @@ class Authendicator:
                 return Authendicator.FAILED
             if user[0].password == password:
                 request.session['user'] = user[0]
-                return AUTHENDICATED
-            return FAILED
+                return Authendicator.AUTHENDICATED
+            return Authendicator.FAILED
         except:
-            return FAILED
+            return Authendicator.FAILED
     
     @staticmethod
     def logout ( request ):
         request.session.flush()
         
-class UserFormToLogin(ModelForm):
-    class Meta:
-        model = User
-        fields = ['uname', 'password']
+class UserFormToLogin(forms.Form):
+    uname = forms.CharField( max_length = 14)
+    password = forms.CharField( max_length = 75 , widget = forms.PasswordInput() )
+
+    
     
 def RCNL_login_required(function):
     def wrapper( request, *args, **kwargs ):
@@ -34,6 +37,6 @@ def RCNL_login_required(function):
                 request.session['next'] = request.META['PATH_INFO']
                 return HttpResponseRedirect( "/users/login/?next=" + request.META['PATH_INFO'] )
 
-        return f( request, *args, **kwargs )
+        return function( request, *args, **kwargs )
     
     return wrapper

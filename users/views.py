@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from users.models import User
 from users.utils import UserFormToLogin, Authendicator
 from django.http import HttpResponseRedirect
 
